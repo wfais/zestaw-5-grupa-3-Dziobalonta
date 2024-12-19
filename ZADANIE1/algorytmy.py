@@ -74,35 +74,31 @@ def merge_sort(array: MonitorowanaTablica, left=None, right=None):
 
 def merge(array: MonitorowanaTablica, left, middle, right):
     """Merges two sorted subarrays."""
+    temp = [0] * (right - left + 1)
+    i, j, k = left, middle + 1, 0
 
-    n1 = middle - left + 1
-    n2 = right - middle
-
-    L = [array[left + i] for i in range(n1)]
-    R = [array[middle + 1 + j] for j in range(n2)]
-
-    i = j = 0
-    k = left
-
-    while i < n1 and j < n2:
-        if L[i] <= R[j]:
-            array[k] = L[i]
+    while i <= middle and j <= right:
+        if array[i] <= array[j]:
+            temp[k] = array[i]
             i += 1
         else:
-            array[k] = R[j]
+            temp[k] = array[j]
             j += 1
         k += 1
 
-    while i < n1:
-        array[k] = L[i]
+    while i <= middle:
+        temp[k] = array[i]
         i += 1
         k += 1
 
 
-    while j < n2:
-        array[k] = R[j]
+    while j <= right:
+        temp[k] = array[j]
         j += 1
         k += 1
+
+    for k in range(len(temp)):
+        array[left + k] = temp[k]
 
 def quick_sort(array: MonitorowanaTablica, left=None, right=None):
     """Performs quick sort on the given array."""
