@@ -3,8 +3,12 @@ from functools import reduce
 
 
 def product(fracs):
-# twoj kod tutaj
-    pass 
+    result = Fraction(1, 1)
+
+    for frac in fracs:
+        result *= frac
+
+    return result.numerator, result.denominator
 
 
 if __name__ == "__main__":

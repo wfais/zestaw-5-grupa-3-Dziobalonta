@@ -1,9 +1,13 @@
 import time
-from ZADANIE1.histogram import plot_histogram
-from ZADANIE1.tablica import MonitorowanaTablica
-from ZADANIE1.algorytmy import algorytmy
 
-
+try:
+    from ZADANIE1.histogram import plot_histogram
+    from ZADANIE1.tablica import MonitorowanaTablica
+    from ZADANIE1.algorytmy import algorytmy
+except ImportError:
+    from histogram import plot_histogram
+    from tablica import MonitorowanaTablica
+    from algorytmy import algorytmy
 
 N = 50
 FPS = 60

@@ -1,7 +1,10 @@
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from ZADANIE1.tablica import MonitorowanaTablica
 
+try:
+    from ZADANIE1.tablica import MonitorowanaTablica
+except ImportError:
+    from tablica import MonitorowanaTablica
 
 def plot_histogram(tablica: MonitorowanaTablica, algo_name: str, fps=60):
     '''Rysuje proces sortowania.
